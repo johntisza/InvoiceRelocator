@@ -2,12 +2,15 @@ from PyPDF4.pdf import PdfFileReader
 from PyPDF4.pdf import PdfFileWriter
 from pathlib import Path, WindowsPath
 import re
+import os
 import datetime
 
-base_loc = WindowsPath("C:\\Users\\John Desktop\\Desktop\\Invoices\\")
+username = os.getlogin()
+
+base_loc = WindowsPath(f"C:\\Users\\{username}\\Desktop\\Invoices\\")
 folder_write_loc = base_loc / str(datetime.date.today())
 
-desktop = WindowsPath("C:\\Users\\John Desktop\\Desktop\\")
+desktop = WindowsPath(f"C:\\Users\\{username}\\Desktop\\")
 pdf_list = [file for file in desktop.glob("*.pdf")]
 
 
